@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story & Creed | CRUSH Cosmetics</title>
+  <meta name="description" content="Discover the story behind CRUSH Cosmetics: born for unapologetic bold self-expression, high-pigment longwear, and 100% vegan beauty for Indian skin.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+</head>
+<body>
+
+  <!-- Top Marquee Bar -->
+  <div class="top-bar-marquee">
+    🔥 FLAT 20% OFF ON ORDERS ABOVE ₹799 • CODE: <strong>CRUSH20</strong> | FREE EXPRESS DELIVERY ACROSS INDIA ⚡
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-crush">CRUSH</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop All</a>
+        <a href="shop.html?cat=lips" class="nav-link">Lips</a>
+        <a href="shop.html?cat=eyes" class="nav-link">Eyes</a>
+        <a href="shop.html?cat=face" class="nav-link">Face</a>
+        <a href="about.html" class="nav-link active">Our Story</a>
+        <a href="contact.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="icon-btn open-mini-cart-btn" title="Shopping Bag">
+          🛍️
+          <span class="badge-count cart-badge-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-pad">
+    <div class="container" style="max-width: 900px;">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span class="hero-pill-badge">✨ OUR PHILOSOPHY</span>
+        <h1 class="hero-title" style="font-size: 3rem;">BORN FOR THE <span class="gradient-text">FEARLESS & BOLD</span></h1>
+        <p class="hero-sub" style="margin: 0 auto; max-width: 650px;">
+          CRUSH Cosmetics was created to break away from subdued beauty standards. We champion ultra-pigmented, transfer-proof cosmetics made to withstand Indian heat, monsoons, and midnight celebrations.
+        </p>
+      </div>
+
+      <div style="border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 3rem; border: 1px solid var(--border-color);">
+        <img src="assets/images/hero_banner_2.jpg" alt="CRUSH Brand Aesthetics" style="width: 100%; height: 380px; object-fit: cover;">
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem;">
+        <div style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎯</div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase;">Indian Skin Undertones First</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            Every single red, plum, mauve, and nude is calibrated with warm, golden, and neutral undertones to eliminate gray or ashy cast completely.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">🐰</div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; text-transform: uppercase;">Clean & 100% Cruelty-Free</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+            No parabens, no heavy mineral oils, zero animal testing. Certified cruelty-free and dermatologically approved for sensitive skin.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; background: var(--bg-secondary); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.75rem; font-weight: 900; margin-bottom: 1rem; text-transform: uppercase;">Ready to Find Your Signature Shade?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Explore the full lineup with instant UPI & card checkout.</p>
+        <a href="shop.html" class="btn btn-primary">Enter The Glam Vault 💄</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="mini-cart-overlay" id="mini-cart-overlay"></div>
+  <aside class="mini-cart-drawer" id="mini-cart-drawer">
+    <div class="mini-cart-header">
+      <h3>Shopping Bag (<span class="cart-badge-count">0</span>)</h3>
+      <button class="close-drawer-btn" id="mini-cart-close" aria-label="Close Bag">&times;</button>
+    </div>
+    <div class="mini-cart-items" id="mini-cart-items"></div>
+    <div class="mini-cart-footer" id="mini-cart-footer"></div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2026 CRUSH Cosmetics (HeliosLabs). All Rights Reserved.</p>
+      <p><a href="index.html">Return to Home →</a></p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/gateway.js"></script>
+</body>
+</html>

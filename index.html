@@ -3,659 +3,383 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUSH Cosmetics — Unapologetically Bold Beauty | 16H Smudge-Proof Lipsticks &amp; Kajals</title>
-  <meta name="description" content="Shop India's trendiest cosmetic brand. Bold transfer-proof liquid lipsticks, intense kajals, airbrush foundations, and highlighters. 100% Vegan &amp; Cruelty-Free.">
-  <meta property="og:title" content="CRUSH Cosmetics — Bold, 16H Transferproof Beauty">
-  <meta property="og:description" content="Trending matte lipsticks, intense waterproof kajals, and baked highlighters.">
-  <meta property="og:type" content="website">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <title>CRUSH Cosmetics — Unstoppable Bold Beauty • Est. 2026</title>
+  <meta name="description" content="Shop high-pigment, transferproof, 100% vegan lipsticks, kajals, foundations, and palettes formulated for Indian skin tones. Experience the bold matte revolution.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div class="top-bar">
-    ⚡ <strong>FESTIVE DROP:</strong> Flat 20% OFF Everything with code 
-    <span class="code-tag" onclick="copyCoupon('CRUSH20')" title="Click to copy">CRUSH20</span>
-    | Free Shipping &amp; Velvet Bag on orders above ₹499
+  <!-- Top Marquee Bar -->
+  <div class="top-bar-marquee">
+    🔥 FLAT 20% OFF ON ORDERS ABOVE ₹799 • CODE: <strong>CRUSH20</strong> | FREE EXPRESS DELIVERY ACROSS INDIA ⚡
   </div>
 
-  <!-- Sticky Glassmorphic Header -->
+  <!-- Header -->
   <header class="site-header">
-    <div class="container nav-wrap">
-      <!-- Brand Logo -->
-      <a href="#hero" class="brand-logo" aria-label="CRUSH Cosmetics Home">
-        <span class="logo-dot"></span>
-        <span>CRUSH<span class="gradient-text">.</span></span>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-crush">CRUSH</span>
+        <span class="logo-tag">PRO</span>
       </a>
 
-      <!-- Category Navigation -->
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><span class="nav-link active" onclick="setCategory('all')">All Products</span></li>
-          <li><span class="nav-link" onclick="setCategory('lips')">Lips</span></li>
-          <li><span class="nav-link" onclick="setCategory('eyes')">Eyes</span></li>
-          <li><span class="nav-link" onclick="setCategory('face')">Face</span></li>
-          <li><span class="nav-link" onclick="setCategory('combos')">Value Sets</span></li>
-          <li><span class="nav-link" onclick="startQuiz()">Shade Finder ✨</span></li>
-        </ul>
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Shop All</a>
+        <a href="shop.html?cat=lips" class="nav-link">Lips</a>
+        <a href="shop.html?cat=eyes" class="nav-link">Eyes</a>
+        <a href="shop.html?cat=face" class="nav-link">Face</a>
+        <a href="shop.html?sort=rating" class="nav-link">Bestsellers <span class="nav-tag-badge">HOT</span></a>
+        <a href="about.html" class="nav-link">Our Story</a>
+        <a href="contact.html" class="nav-link">Support</a>
       </nav>
 
-      <!-- Nav Actions (Search, Wishlist, Cart) -->
-      <div class="nav-actions">
-        <!-- Search -->
-        <div class="search-box">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="global-search" class="search-input" placeholder="Search lipsticks, kajal..." aria-label="Search products">
-        </div>
-
-        <!-- Wishlist Button -->
-        <button type="button" class="action-icon-btn" onclick="showToast('You have ' + state.wishlist.size + ' items in wishlist')" title="Wishlist" aria-label="Wishlist">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-          </svg>
-          <span class="cart-counter" id="wishlist-count-badge" style="display:none;">0</span>
-        </button>
-
-        <!-- Cart Drawer Button -->
-        <button type="button" class="action-icon-btn" onclick="openCartDrawer()" title="Shopping Bag" aria-label="Shopping Bag">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <path d="M16 10a4 4 0 0 1-8 0"></path>
-          </svg>
-          <span class="cart-counter" id="cart-badge" style="display:none;">0</span>
-        </button>
+      <div class="header-actions">
+        <a href="shop.html" class="icon-btn" title="Search Products">🔍</a>
+        <a href="cart.html" class="icon-btn open-mini-cart-btn" title="Shopping Bag">
+          🛍️
+          <span class="badge-count cart-badge-count" style="display: none;">0</span>
+        </a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-section" id="hero">
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
+  <section class="hero-sugar">
     <div class="container hero-grid">
-      
-      <!-- Hero Content -->
       <div class="hero-content">
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <span class="badge badge-pink">🔥 Gen-Z Beauty Drop</span>
-          <span class="badge badge-gold">⭐ 4.9/5 Rated by 85k+ Beauties</span>
+        <div class="hero-pill-badge">
+          <span>✨</span> SUGAR-INSPIRED HIGH PIGMENT REVOLUTION
         </div>
-
         <h1 class="hero-title">
-          RULE THE RUNWAY.<br>
-          WEAR YOUR <span class="gradient-text">ATTITUDE.</span>
+          RULE THE ROOM IN <span class="gradient-text">INTENSE MATTE</span>
         </h1>
-
-        <p class="hero-desc">
-          Ultra-pigmented, 16-hour transfer-proof cosmetics engineered for Indian skin tones. Bold matte lipsticks, intense kajal, and radiant airbrush glow without the luxury price tag.
+        <p class="hero-sub">
+          16-hour transfer-proof, ultra-pigmented formulas engineered specifically for warm, olive, and rich Indian skin tones. 100% Vegan. Cruelty-Free. Unapologetic.
         </p>
-
-        <div class="hero-ctas">
-          <a href="#catalog" class="btn btn-primary" onclick="setCategory('all')">
-            Shop Bestsellers →
-          </a>
-          <button type="button" class="btn btn-secondary" onclick="startQuiz()">
-            ✨ Virtual Shade Finder
-          </button>
+        <div class="hero-cta-group">
+          <a href="shop.html" class="btn btn-primary">Shop Bestsellers 💄</a>
+          <a href="shop.html?cat=lips" class="btn btn-secondary">Explore Lip Crushes</a>
         </div>
-
-        <!-- Social Proof Stats -->
-        <div class="hero-proof">
-          <div class="proof-stat">
-            <h4>16 Hours</h4>
-            <p>Smudge-Proof Stay</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>16H+</h4>
+            <p>Zero Transfer Wear</p>
           </div>
-          <div class="proof-stat">
+          <div class="stat-item">
             <h4>100%</h4>
-            <p>Vegan &amp; PETA Approved</p>
+            <p>Vegan & Cruelty Free</p>
           </div>
-          <div class="proof-stat">
-            <h4>2.8M+</h4>
-            <p>Lips &amp; Eyes Loved</p>
+          <div class="stat-item">
+            <h4>500K+</h4>
+            <p>Glam Crushes Across India</p>
           </div>
         </div>
       </div>
 
-      <!-- Hero Featured Showcase Card -->
-      <div class="hero-card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-          <span class="badge badge-pink">Iconic Drop</span>
-          <span style="font-size: 0.85rem; font-weight: bold; color: var(--gold-glow);">★ 4.9 (1.4k Reviews)</span>
-        </div>
-
-        <div class="hero-card-img-wrap" id="hero-img-showcase">
-          <!-- SVG Illustration of Hero Matte Lipstick -->
-          <svg width="150" height="230" viewBox="0 0 100 160" fill="none">
-            <rect x="34" y="65" width="32" height="85" rx="4" fill="#1C1C24" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-            <rect x="34" y="90" width="32" height="4" fill="#FF007A"/>
-            <text x="50" y="125" fill="#6B7280" font-size="6" font-weight="bold" font-family="sans-serif" text-anchor="middle" letter-spacing="1">CRUSH</text>
-            <rect x="37" y="48" width="26" height="17" fill="url(#heroGold)" rx="2"/>
-            <path id="hero-bullet-path" d="M40 50 L40 25 C40 16 52 10 58 10 C62 10 60 25 60 50 Z" fill="#B91C1C"/>
-            <path d="M42 48 L42 26 C42 20 48 16 52 14" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
-            <defs>
-              <linearGradient id="heroGold" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#FCD34D"/>
-                <stop offset="100%" stop-color="#D97706"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
-        <h3 style="font-size: 1.35rem; margin-bottom: 0.25rem;">Matte As Hell Crayon Lipstick</h3>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Shade: <strong id="hero-shade-name" style="color: #fff;">01 Scarlett Fury</strong></p>
-
-        <!-- Interactive hero swatches -->
-        <div class="hero-swatches-interactive">
-          <span class="swatch-circle active" style="background:#B91C1C;" title="Scarlett Fury" onclick="updateHeroSwatch('#B91C1C', '01 Scarlett Fury')"></span>
-          <span class="swatch-circle" style="background:#6B21A8;" title="Plum Velvet" onclick="updateHeroSwatch('#6B21A8', '02 Plum Velvet')"></span>
-          <span class="swatch-circle" style="background:#9D174D;" title="Mauve Crush" onclick="updateHeroSwatch('#9D174D', '03 Mauve Crush')"></span>
-          <span class="swatch-circle" style="background:#9A3412;" title="Cinnamon Nude" onclick="updateHeroSwatch('#9A3412', '04 Cinnamon Nude')"></span>
-        </div>
-
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-glass);">
-          <div>
-            <span style="font-size: 1.4rem; font-weight: 800; color:#fff;">₹799</span>
-            <span style="font-size: 0.9rem; color: var(--text-dim); text-decoration: line-through; margin-left: 0.35rem;">₹999</span>
+      <div class="hero-visual">
+        <div class="hero-image-frame">
+          <img src="assets/images/hero_model.jpg" alt="Bold Runway Model wearing CRUSH Matte Lipstick and Dramatic Eyes" width="600" height="520">
+          <div class="floating-hero-badge">
+            <span class="badge-icon">💋</span>
+            <div>
+              <strong>Smudge-Me-Not Matte</strong>
+              <span>Shade: 02 Scarlet Siren</span>
+            </div>
           </div>
-          <button type="button" class="btn btn-primary btn-sm" onclick="addToCart(1)">
-            + Add to Bag
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Flash Sale Countdown Banner -->
-  <section class="flash-banner">
-    <div class="container flash-content">
-      <div class="flash-info">
-        <span style="font-size: 1.5rem;">⚡</span>
-        <div>
-          <h4 style="font-size: 1rem; text-transform: uppercase; color: #fff;">FLASH OFFER: BUY 2 GET 1 FREE</h4>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Use code <span style="color: var(--primary-pink); font-weight:bold;">CRUSH20</span> for additional 20% savings</p>
-        </div>
-      </div>
-
-      <div class="countdown-box">
-        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: bold;">Offer Ends:</span>
-        <div class="time-unit" id="cd-hours">04</div>
-        <span style="font-weight: bold; color: var(--primary-pink);">:</span>
-        <div class="time-unit" id="cd-mins">42</div>
-        <span style="font-weight: bold; color: var(--primary-pink);">:</span>
-        <div class="time-unit" id="cd-secs">19</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Catalog Section -->
-  <section class="container" id="catalog" style="padding-bottom: 4rem;">
-    <!-- Section Heading -->
-    <div style="text-align: center; max-width: 650px; margin: 0 auto 2.5rem;">
-      <span class="badge badge-pink" style="margin-bottom: 0.75rem;">Curated Formulas</span>
-      <h2 style="font-size: 2.4rem; margin-bottom: 0.5rem;">Iconic Best Sellers</h2>
-      <p style="color: var(--text-muted); font-size: 0.95rem;">
-        Intensely pigmented, dermatologically tested, and formulated without parabens, mineral oils, or harsh chemicals.
-      </p>
-    </div>
-
-    <!-- Category Filter Bar -->
-    <div class="filter-bar">
-      <div class="filter-pills">
-        <button type="button" class="pill-btn active" data-category="all" onclick="setCategory('all')">All Products (8)</button>
-        <button type="button" class="pill-btn" data-category="lips" onclick="setCategory('lips')">Lipsticks &amp; Gloss (2)</button>
-        <button type="button" class="pill-btn" data-category="eyes" onclick="setCategory('eyes')">Eye Makeup (3)</button>
-        <button type="button" class="pill-btn" data-category="face" onclick="setCategory('face')">Face &amp; Glow (2)</button>
-        <button type="button" class="pill-btn" data-category="combos" onclick="setCategory('combos')">Value Sets (1)</button>
-      </div>
-
-      <div style="font-size: 0.85rem; color: var(--text-muted);">
-        Showing real-time stock availability
-      </div>
-    </div>
-
-    <!-- Product Grid -->
-    <div class="product-grid" id="product-grid">
-      <!-- Populated dynamically by app.js -->
-    </div>
-  </section>
-
-  <!-- Virtual Shade Finder / Quiz Callout Card -->
-  <section class="container" style="margin-bottom: 5rem;">
-    <div class="quiz-section">
-      <div style="max-width: 600px;">
-        <span class="badge badge-gold" style="margin-bottom: 0.75rem;">AI Beauty Consultant</span>
-        <h2 style="font-size: 2.2rem; margin-bottom: 0.75rem;">Find Your Exact Red &amp; Foundation Match</h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;">
-          Never buy the wrong shade again. Take our 60-second shade quiz tailored specifically for warm, olive, and neutral Indian undertones.
-        </p>
-        <button type="button" class="btn btn-primary" onclick="startQuiz()">
-          Take The 60-Second Quiz ✨
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Trust Pillars & Formulation Ethics -->
-  <section class="container">
-    <div class="trust-section">
-      <div class="trust-card">
-        <div class="trust-icon">🐰</div>
-        <div>
-          <h4 style="font-size: 0.95rem; font-weight: 700; color: #fff;">100% Vegan &amp; Cruelty-Free</h4>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">PETA-certified, zero animal testing ever.</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon">⏱️</div>
-        <div>
-          <h4 style="font-size: 0.95rem; font-weight: 700; color: #fff;">16H Waterproof Formula</h4>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Resists sweat, humidity, and spicy food.</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon">🔬</div>
-        <div>
-          <h4 style="font-size: 0.95rem; font-weight: 700; color: #fff;">Dermatologically Tested</h4>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Safe for sensitive skin and delicate eyes.</p>
-        </div>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon">🇮🇳</div>
-        <div>
-          <h4 style="font-size: 0.95rem; font-weight: 700; color: #fff;">Engineered for Indian Skin</h4>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Rich pigments that never look ashy.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Verified Customer Reviews Section -->
-  <section class="container" style="padding-top: 1rem; margin-bottom: 5rem;">
-    <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
-      <span class="badge badge-gold" style="margin-bottom: 0.75rem;">Verified Customers</span>
-      <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Loved by Millions of Pouts</h2>
-      <p style="color: var(--text-muted); font-size: 0.95rem;">Real results and uncensored love from our beauty community.</p>
-    </div>
-
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-header">
-          <span class="reviewer-name">Priya S., Bangalore</span>
-          <span class="verified-tag">✓ Verified Buyer</span>
+  <!-- Brand Creed Bar -->
+  <section class="brand-creed-bar">
+    <div class="container creed-grid">
+      <div class="creed-item">
+        <div class="creed-icon">⚡</div>
+        <div class="creed-text">
+          <h5>Zero Transfer Proof</h5>
+          <p>Locked-in pigment through tea, coffee, and all-day hustle</p>
         </div>
-        <div style="color: var(--gold-glow); font-size: 0.85rem;">★★★★★</div>
-        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-          "The Matte As Hell Crayon in Scarlett Fury is unmatched. Lasted through a 9-hour wedding buffet and biryani without fading or feathering. It is genuinely better than my ₹3,000 luxury lipsticks!"
-        </p>
-        <span style="font-size: 0.75rem; color: var(--text-dim);">Purchased: Matte Crayon Lipstick (01 Scarlett Fury)</span>
       </div>
-
-      <div class="review-card">
-        <div class="review-header">
-          <span class="reviewer-name">Ananya M., Delhi</span>
-          <span class="verified-tag">✓ Verified Buyer</span>
+      <div class="creed-item">
+        <div class="creed-icon">🐰</div>
+        <div class="creed-text">
+          <h5>100% Cruelty Free</h5>
+          <p>PETA approved, no animal testing ever</p>
         </div>
-        <div style="color: var(--gold-glow); font-size: 0.85rem;">★★★★★</div>
-        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-          "Finally a kajal that doesn't melt into raccoon eyes by 3 PM! Intense pitch black in just one stroke. It's gentle on my watery contact-lens eyes too."
-        </p>
-        <span style="font-size: 0.75rem; color: var(--text-dim);">Purchased: Kohl Of Honour Intense Kajal</span>
       </div>
-
-      <div class="review-card">
-        <div class="review-header">
-          <span class="reviewer-name">Sneha K., Mumbai</span>
-          <span class="verified-tag">✓ Verified Buyer</span>
+      <div class="creed-item">
+        <div class="creed-icon">🎨</div>
+        <div class="creed-text">
+          <h5>Indian Tone Formulated</h5>
+          <p>Zero ashy casts, curated for warm & olive undertones</p>
         </div>
-        <div style="color: var(--gold-glow); font-size: 0.85rem;">★★★★★</div>
-        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-          "Ordered via the WhatsApp fast checkout, got free shipping and received my parcel in 48 hours. The Sunset Seduction palette colors are pigmented like butter!"
-        </p>
-        <span style="font-size: 0.75rem; color: var(--text-dim);">Purchased: Sunset Seduction 16-Pan Palette</span>
+      </div>
+      <div class="creed-item">
+        <div class="creed-icon">🚚</div>
+        <div class="creed-text">
+          <h5>Free Express Delivery</h5>
+          <p>Complimentary shipping across India on orders over ₹499</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Quick View Modal (Accessible Native <dialog>) -->
-  <dialog id="quick-view-dialog" aria-labelledby="qv-title">
-    <div class="modal-content">
-      <div class="modal-image-side" id="qv-svg-container">
-        <!-- Dynamic SVG preview -->
-      </div>
-      <div class="modal-details-side">
-        <button type="button" class="modal-close-btn" onclick="closeQuickView()" aria-label="Close dialog">✕</button>
-
-        <span class="badge badge-pink" id="qv-finish">Ultra-Matte</span>
-        <h3 id="qv-title" style="font-size: 1.6rem; color: #fff;">Product Title</h3>
-        
-        <div style="display: flex; align-items: baseline; gap: 0.5rem;">
-          <span id="qv-price" style="font-size: 1.5rem; font-weight: 800; color: #fff;">₹0</span>
-          <span id="qv-orig-price" style="font-size: 0.9rem; color: var(--text-dim); text-decoration: line-through;">₹0</span>
-        </div>
-
-        <p id="qv-desc" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;"></p>
-
-        <div>
-          <label style="font-size: 0.8rem; font-weight: bold; text-transform: uppercase; color: #fff; display: block; margin-bottom: 0.5rem;">
-            Select Shade:
-          </label>
-          <div id="qv-shades" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <!-- Shade pills -->
-          </div>
-        </div>
-
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 0.75rem;">
-          <strong style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold-glow); display: block; margin-bottom: 0.2rem;">Key Ingredients:</strong>
-          <span id="qv-ingredients" style="font-size: 0.75rem; color: var(--text-muted);"></span>
-        </div>
-
-        <button type="button" class="btn btn-primary" style="margin-top: 0.5rem;" onclick="addQuickViewToCart()">
-          Add to Bag
-        </button>
-      </div>
-    </div>
-  </dialog>
-
-  <!-- Virtual Shade Finder Dialog (<dialog>) -->
-  <dialog id="quiz-dialog" aria-labelledby="quiz-modal-title">
-    <div style="padding: 2.5rem; max-width: 580px; width: 90vw;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-        <h3 id="quiz-modal-title" style="font-size: 1.4rem;">Virtual Shade Finder 💄</h3>
-        <button type="button" class="modal-close-btn" style="position:static;" onclick="closeQuiz()" aria-label="Close">✕</button>
-      </div>
-
-      <!-- Step 1: Undertone -->
-      <div id="quiz-step-1">
-        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Step 1: What is your skin undertone?</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">Look at the veins on your wrist in natural daylight.</p>
-        
-        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <div class="quiz-option-card" onclick="selectQuizAnswer(1, 'warm')">
-            <strong style="color: #fff;">Warm / Golden (Olive / Green Veins)</strong>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">You look best in rich reds, terracotta, and gold jewelry.</p>
-          </div>
-          <div class="quiz-option-card" onclick="selectQuizAnswer(1, 'neutral')">
-            <strong style="color: #fff;">Neutral (Mix of Blue &amp; Green Veins)</strong>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Both silver and gold jewelry suit you evenly.</p>
-          </div>
-          <div class="quiz-option-card" onclick="selectQuizAnswer(1, 'cool')">
-            <strong style="color: #fff;">Cool / Rose (Blue / Purple Veins)</strong>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">You look stunning in berry, plum, and jewel tones.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 2: Preferred Finish -->
-      <div id="quiz-step-2" style="display:none;">
-        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Step 2: What lip finish do you wear most?</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">Choose your signature everyday formula.</p>
-        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <div class="quiz-option-card" onclick="selectQuizAnswer(2, 'matte')">
-            <strong style="color: #fff;">Ultra-Matte Transferproof Crayon</strong>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Zero shine, 16-hour mask-proof and kiss-proof power.</p>
-          </div>
-          <div class="quiz-option-card" onclick="selectQuizAnswer(2, 'gloss')">
-            <strong style="color: #fff;">Juicy Mirror-Shine Vinyl Gloss</strong>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">Plump, high-gloss wet look without any stickiness.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 3: Intensity -->
-      <div id="quiz-step-3" style="display:none;">
-        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Step 3: What vibe are you feeling?</h4>
-        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
-          <div class="quiz-option-card" onclick="selectQuizAnswer(3, 'bold')">
-            <strong style="color: #fff;">Bold Boss (Deep Scarlett &amp; Plums)</strong>
-          </div>
-          <div class="quiz-option-card" onclick="selectQuizAnswer(3, 'nude')">
-            <strong style="color: #fff;">Everyday Sunkissed Nudes &amp; Mauves</strong>
-          </div>
-        </div>
-      </div>
-
-      <!-- Result Screen -->
-      <div id="quiz-result" style="display:none; text-align: center; padding: 1rem 0;">
-        <span class="badge badge-pink" style="margin-bottom: 1rem;">Match Found! 🎉</span>
-        <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Your Signature Pick:</h3>
-        <p style="font-size: 1.1rem; font-weight: bold; color: var(--primary-pink); margin-bottom: 0.5rem;">Matte As Hell Crayon — 01 Scarlett Fury</p>
-        <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 400px; margin: 0 auto 1.5rem;">
-          Based on your warm undertone, this blue-toned ruby red will instantly brighten your complexion and make teeth appear visibly whiter.
-        </p>
-        <div style="display: flex; gap: 0.75rem; justify-content: center;">
-          <button type="button" class="btn btn-primary" onclick="addToCart(1, 0); closeQuiz();">
-            Add Match to Bag (₹799)
-          </button>
-          <button type="button" class="btn btn-secondary" onclick="resetQuiz()">
-            Restart
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </dialog>
-
-  <!-- Instant Mock Checkout Dialog (<dialog>) -->
-  <dialog id="checkout-dialog" aria-labelledby="chk-title">
-    <div style="padding: 2.5rem; max-width: 520px; width: 90vw;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.5rem;">
-        <h3 id="chk-title" style="font-size: 1.4rem;">Express Delivery Checkout</h3>
-        <button type="button" class="modal-close-btn" style="position:static;" onclick="closeInstantCheckout()" aria-label="Close">✕</button>
-      </div>
-
-      <form onsubmit="handleMockOrder(event)">
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <div>
-            <label style="font-size: 0.8rem; font-weight: bold; color: #fff; display: block; margin-bottom: 0.3rem;">Full Name</label>
-            <input type="text" required placeholder="e.g. Radhika Sharma" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid var(--border-glass); border-radius:var(--radius-sm); padding:0.6rem 0.8rem; color:#fff;">
-          </div>
-          <div>
-            <label style="font-size: 0.8rem; font-weight: bold; color: #fff; display: block; margin-bottom: 0.3rem;">Phone Number (WhatsApp)</label>
-            <input type="tel" required placeholder="+91 98450 12345" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid var(--border-glass); border-radius:var(--radius-sm); padding:0.6rem 0.8rem; color:#fff;">
-          </div>
-          <div>
-            <label style="font-size: 0.8rem; font-weight: bold; color: #fff; display: block; margin-bottom: 0.3rem;">Delivery Address &amp; Pincode</label>
-            <input type="text" required placeholder="Flat No., Street, City, Pincode" style="width:100%; background:rgba(255,255,255,0.06); border:1px solid var(--border-glass); border-radius:var(--radius-sm); padding:0.6rem 0.8rem; color:#fff;">
-          </div>
-          <div>
-            <label style="font-size: 0.8rem; font-weight: bold; color: #fff; display: block; margin-bottom: 0.3rem;">Payment Method</label>
-            <select style="width:100%; background:#1C1C26; border:1px solid var(--border-glass); border-radius:var(--radius-sm); padding:0.6rem 0.8rem; color:#fff;">
-              <option value="upi">UPI (Google Pay, PhonePe, Paytm) — Instant</option>
-              <option value="cod">Cash on Delivery (COD)</option>
-              <option value="card">Credit / Debit Card</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary" style="margin-top: 0.75rem; width:100%;">
-            Confirm &amp; Place Demo Order 🚀
-          </button>
-        </div>
-      </form>
-    </div>
-  </dialog>
-
-  <!-- Off-Canvas Cart Drawer -->
-  <div class="cart-overlay" id="cart-overlay" onclick="if(event.target === this) closeCartDrawer()">
-    <aside class="cart-drawer" aria-label="Shopping Bag">
-      <!-- Drawer Header -->
-      <div class="drawer-header">
-        <div>
-          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff;">Your Beauty Bag</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted);">100% Guaranteed Genuine Products</span>
-        </div>
-        <button type="button" class="modal-close-btn" style="position:static;" onclick="closeCartDrawer()" aria-label="Close Bag">✕</button>
-      </div>
-
-      <!-- Free Shipping Bar -->
-      <div style="padding: 0.75rem 1.5rem; background: rgba(255,0,122,0.06); border-bottom: 1px solid var(--border-glass);">
-        <div style="font-size: 0.8rem; color: #fff;" id="free-ship-text">
-          Add <strong>₹499</strong> more for FREE Shipping
-        </div>
-        <div class="free-ship-bar-wrap">
-          <div class="free-ship-fill" id="free-ship-bar" style="width: 0%;"></div>
-        </div>
-      </div>
-
-      <!-- Items List -->
-      <div class="drawer-items" id="cart-items-container">
-        <!-- Injected dynamically by app.js -->
-      </div>
-
-      <!-- Drawer Footer -->
-      <div class="drawer-footer">
-        <!-- Coupon input -->
-        <div style="display: flex; gap: 0.5rem;">
-          <input type="text" id="coupon-input" placeholder="Promo code (CRUSH20)" style="flex-grow:1; background:rgba(255,255,255,0.05); border:1px solid var(--border-glass); border-radius:var(--radius-sm); padding:0.5rem 0.8rem; color:#fff; font-size:0.85rem; text-transform:uppercase;">
-          <button type="button" class="btn btn-secondary btn-sm" onclick="applyCoupon()">Apply</button>
-        </div>
-
-        <!-- Breakdown -->
-        <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.85rem;">
-          <div style="display: flex; justify-content: space-between; color: var(--text-muted);">
-            <span>Bag Subtotal:</span>
-            <span id="cart-subtotal" style="color: #fff; font-weight: bold;">₹0</span>
-          </div>
-          <div id="cart-discount-row" style="display: none; justify-content: space-between; color: var(--primary-pink); font-weight: bold;">
-            <span>Coupon Discount (20%):</span>
-            <span id="cart-discount-val">-₹0</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; color: var(--text-muted);">
-            <span>Shipping:</span>
-            <span id="cart-shipping" style="color: #fff;">FREE</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 800; color: #fff; padding-top: 0.5rem; border-top: 1px solid var(--border-glass);">
-            <span>To Pay:</span>
-            <span id="cart-total" class="gradient-text">₹0</span>
-          </div>
-        </div>
-
-        <!-- Checkout Buttons -->
-        <button type="button" class="btn btn-primary" style="width: 100%;" onclick="openInstantCheckout()">
-          Proceed to Checkout →
-        </button>
-        <button type="button" class="btn btn-whatsapp btn-sm" style="width: 100%;" onclick="checkoutViaWhatsApp()">
-          <span>💬</span> Order via WhatsApp Fast Handoff
-        </button>
-      </div>
-    </aside>
-  </div>
-
-  <!-- Toast Container -->
-  <div class="toast" id="toast">
-    <span style="color: var(--primary-pink);">✨</span>
-    <span class="toast-msg">Added to Bag</span>
-  </div>
-
-  <!-- Mobile Sticky Bottom Bar -->
-  <nav class="mobile-bottom-bar" aria-label="Mobile Navigation">
-    <a href="#hero" class="mobile-nav-item active">
-      <span>🏠</span>
-      <span>Home</span>
-    </a>
-    <a href="#catalog" class="mobile-nav-item" onclick="setCategory('lips')">
-      <span>💄</span>
-      <span>Lips</span>
-    </a>
-    <a href="javascript:void(0)" class="mobile-nav-item" onclick="startQuiz()">
-      <span>✨</span>
-      <span>Shade Quiz</span>
-    </a>
-    <a href="javascript:void(0)" class="mobile-nav-item" onclick="openCartDrawer()">
-      <span>🛍️</span>
-      <span>Bag</span>
-    </a>
-  </nav>
-
-  <!-- Site Footer -->
-  <footer class="site-footer">
+  <!-- Shop By Category Section -->
+  <section class="section-pad">
     <div class="container">
-      <div class="footer-grid">
-        <!-- Col 1 -->
-        <div class="footer-col">
-          <div class="brand-logo" style="margin-bottom: 1rem;">
-            <span class="logo-dot"></span>
-            <span>CRUSH<span class="gradient-text">.</span></span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
-            Unapologetically bold beauty engineered for the unstoppable modern woman. 100% PETA-approved vegan &amp; cruelty-free makeup with high-impact color payoff.
-          </p>
-          <div style="display: flex; gap: 0.6rem; font-size: 1.1rem;">
-            <span class="action-icon-btn" style="width:2rem; height:2rem; font-size:0.8rem;" title="Instagram">📸</span>
-            <span class="action-icon-btn" style="width:2rem; height:2rem; font-size:0.8rem;" title="YouTube">▶️</span>
-            <span class="action-icon-btn" style="width:2rem; height:2rem; font-size:0.8rem;" title="WhatsApp">💬</span>
-          </div>
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Shop By Category</h2>
+          <p class="section-subtitle">Discover high-glam essentials crafted for everyday icons</p>
         </div>
+        <a href="shop.html" class="view-all-link">View All Products →</a>
+      </div>
 
-        <!-- Col 2 -->
-        <div class="footer-col">
-          <h5>Shop By Category</h5>
-          <ul class="footer-links">
-            <li><a href="#catalog" onclick="setCategory('lips')">Matte Crayon Lipsticks</a></li>
-            <li><a href="#catalog" onclick="setCategory('eyes')">Intense Carbon Kajal</a></li>
-            <li><a href="#catalog" onclick="setCategory('face')">Airbrush Foundation Sticks</a></li>
-            <li><a href="#catalog" onclick="setCategory('face')">Baked Highlighters</a></li>
-            <li><a href="#catalog" onclick="setCategory('combos')">Festive Value Bundles</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3 -->
-        <div class="footer-col">
-          <h5>HeliosLabs E-Commerce</h5>
-          <ul class="footer-links">
-            <li><a href="javascript:void(0)" onclick="startQuiz()">Virtual Shade Matcher</a></li>
-            <li><a href="javascript:void(0)" onclick="checkoutViaWhatsApp()">WhatsApp Fast Checkout</a></li>
-            <li><a href="javascript:void(0)" onclick="openCartDrawer()">Interactive Cart Drawer</a></li>
-            <li><a href="javascript:void(0)">Clean Beauty Certification</a></li>
-            <li><a href="javascript:void(0)">Track My Order</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4 -->
-        <div class="footer-col">
-          <h5>Join The Club</h5>
-          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
-            Get instant ₹100 welcome credit and secret monthly shade drops.
-          </p>
-          <div style="display: flex; gap: 0.5rem;">
-            <input type="email" placeholder="Your email address" style="background:rgba(255,255,255,0.06); border:1px solid var(--border-glass); border-radius:var(--radius-full); padding:0.5rem 0.8rem; color:#fff; font-size:0.8rem; width:100%;">
-            <button type="button" class="btn btn-primary btn-sm" onclick="showToast('Welcome to CRUSH Club! Coupon ₹100 emailed.')">Join</button>
+      <div class="category-grid">
+        <a href="shop.html?cat=lips" class="category-tile">
+          <img src="assets/images/cat_lips.jpg" alt="Lips Makeup" class="category-tile-img" loading="lazy">
+          <div class="category-tile-body">
+            <h3 class="category-tile-title">Lips 💋</h3>
           </div>
+        </a>
+        <a href="shop.html?cat=eyes" class="category-tile">
+          <img src="assets/images/cat_eyes.jpg" alt="Eyes Makeup" class="category-tile-img" loading="lazy">
+          <div class="category-tile-body">
+            <h3 class="category-tile-title">Eyes 👁️</h3>
+          </div>
+        </a>
+        <a href="shop.html?cat=face" class="category-tile">
+          <img src="assets/images/cat_face.jpg" alt="Face Makeup" class="category-tile-img" loading="lazy">
+          <div class="category-tile-body">
+            <h3 class="category-tile-title">Face ✨</h3>
+          </div>
+        </a>
+        <a href="shop.html?cat=nails" class="category-tile">
+          <img src="assets/images/cat_nails.jpg" alt="Nails Lacquer" class="category-tile-img" loading="lazy">
+          <div class="category-tile-body">
+            <h3 class="category-tile-title">Nails 💅</h3>
+          </div>
+        </a>
+        <a href="shop.html?cat=skincare" class="category-tile">
+          <img src="assets/images/cat_skincare.jpg" alt="Clean Skincare" class="category-tile-img" loading="lazy">
+          <div class="category-tile-body">
+            <h3 class="category-tile-title">Skin & Mist 🌿</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cult Bestsellers Section -->
+  <section class="section-pad" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">The Cult Bestsellers</h2>
+          <p class="section-subtitle">Real product formulas loved by millions</p>
+        </div>
+        <a href="shop.html?sort=rating" class="view-all-link">Browse Full Vault →</a>
+      </div>
+
+      <div class="products-grid" id="home-bestsellers-grid">
+        <!-- Rendered dynamically by script with real images & shade selectors -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Big Promo Banner -->
+  <section class="container" style="margin: 3rem auto;">
+    <div style="background: linear-gradient(90deg, #1b0a1d 0%, #300624 50%, #150821 100%); border: 1px solid var(--accent-pink); border-radius: var(--radius-lg); padding: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+      <div style="max-width: 600px;">
+        <span style="background: var(--accent-pink); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Limited Festival Vault</span>
+        <h2 style="font-size: 2.25rem; font-weight: 900; margin: 0.75rem 0; text-transform: uppercase;">GET ₹300 OFF ON YOUR FIRST HAUL</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Use secret checkout code <strong style="color: #fff; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">SUGARLOVE</strong> or 20% off with <strong style="color: #fff; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">CRUSH20</strong> at our secure payment gateway!</p>
+        <a href="shop.html" class="btn btn-primary">Claim Offer Now ⚡</a>
+      </div>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <img src="assets/images/hero_banner_2.jpg" alt="Beauty Promo" style="width: 320px; height: 200px; object-fit: cover; border-radius: var(--radius-md); border: 2px solid var(--border-color);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Instagram / Influencer Gallery -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-head" style="text-align: center; display: block; margin-bottom: 2rem;">
+        <h2 class="section-title">Seen On You #CRUSHSquad</h2>
+        <p class="section-subtitle">Real girls, real swatches, unretouched bold beauty</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;">
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 280px; border: 1px solid var(--border-color);">
+          <img src="assets/images/insta_1.jpg" alt="Instagram Makeup Look" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">@priya.glam</div>
+        </div>
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 280px; border: 1px solid var(--border-color);">
+          <img src="assets/images/insta_2.jpg" alt="Instagram Makeup Look" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">@ananya_vibe</div>
+        </div>
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 280px; border: 1px solid var(--border-color);">
+          <img src="assets/images/insta_3.jpg" alt="Instagram Makeup Look" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">@meera_looks</div>
+        </div>
+        <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 280px; border: 1px solid var(--border-color);">
+          <img src="assets/images/insta_4.jpg" alt="Instagram Makeup Look" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">@kavya_styles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="mini-cart-overlay" id="mini-cart-overlay"></div>
+  <aside class="mini-cart-drawer" id="mini-cart-drawer">
+    <div class="mini-cart-header">
+      <h3>Shopping Bag (<span class="cart-badge-count">0</span>)</h3>
+      <button class="close-drawer-btn" id="mini-cart-close" aria-label="Close Bag">&times;</button>
+    </div>
+    <div class="mini-cart-items" id="mini-cart-items">
+      <!-- Injected by cart.js -->
+    </div>
+    <div class="mini-cart-footer" id="mini-cart-footer">
+      <!-- Injected by cart.js -->
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <span class="logo-crush">CRUSH</span>
+          <span class="logo-tag">PRO</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 320px; margin-bottom: 1.5rem;">
+          The boldest, high-pigment cosmetic brand crafted for modern Indian power women. Zero smudge, 100% vegan, unapologetically stunning.
+        </p>
+        <div class="payment-partner-icons">
+          <span>💳</span> <span>⚡</span> <span>🔒</span> <span>🇮🇳</span>
         </div>
       </div>
 
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
-        <p>&copy; 2026 CRUSH Cosmetics Inc. All rights reserved. Cruelty-free &amp; Vegan.</p>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-          <span style="background: rgba(255,0,122,0.1); border: 1px solid rgba(255,0,122,0.3); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; color: var(--primary-pink); font-weight: 700;">
-            Demo Powered by HeliosLabs
-          </span>
-        </div>
+      <div class="footer-col">
+        <h4>Shop Categories</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html?cat=lips">Matte Lipsticks</a></li>
+          <li><a href="shop.html?cat=eyes">Gel Kohl & Kajal</a></li>
+          <li><a href="shop.html?cat=face">HD Foundation Sticks</a></li>
+          <li><a href="shop.html?cat=eyes">16-Pan Eyeshadows</a></li>
+          <li><a href="shop.html?cat=skincare">Matte Setting Mists</a></li>
+        </ul>
       </div>
+
+      <div class="footer-col">
+        <h4>HeliosLabs Network</h4>
+        <ul class="footer-links">
+          <li><a href="https://shop.helioslabs.in/" target="_blank">Aurelia Luxury Fashion</a></li>
+          <li><a href="https://store.helioslabs.in/" target="_blank">Madhuram & Co. Bakery</a></li>
+          <li><a href="https://beauty.helioslabs.in/">CRUSH Cosmetics</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact & FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Safe & Verified Checkout</h4>
+        <p style="font-size: 0.825rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Integrated with UPI, Credit/Debit Cards, NetBanking and COD. Powered by bank-grade 256-bit encryption.
+        </p>
+        <a href="checkout.html" class="btn btn-primary btn-sm btn-block">Go to Checkout 🔒</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 CRUSH Cosmetics (HeliosLabs). All Rights Reserved.</p>
+      <p>Made with bold pigments & precision code.</p>
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
-
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/gateway.js"></script>
   <script>
-    // Hero Swatch Interactive Update
-    function updateHeroSwatch(hex, name) {
-      const path = document.getElementById('hero-bullet-path');
-      if (path) path.setAttribute('fill', hex);
-      const nameEl = document.getElementById('hero-shade-name');
-      if (nameEl) nameEl.textContent = name;
+    // Render Home Bestsellers
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('home-bestsellers-grid');
+      if (!grid) return;
 
-      document.querySelectorAll('.hero-swatches-interactive .swatch-circle').forEach(s => {
-        s.classList.toggle('active', s.getAttribute('title') === name.split(' ')[1] || s.getAttribute('title') === name);
+      const bestsellers = PRODUCTS.slice(0, 8);
+      grid.innerHTML = bestsellers.map(p => {
+        const discountPercent = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+        const shadesHtml = p.shades.map((s, idx) => `
+          <span class="shade-circle ${idx === 0 ? 'active' : ''}" 
+                style="background-color: ${s.color};" 
+                title="${s.name}" 
+                data-product-id="${p.id}" 
+                data-shade="${s.name}"></span>
+        `).join('');
+
+        return `
+          <div class="product-card">
+            <div class="product-media">
+              <span class="product-badge">${p.badge}</span>
+              <a href="product.html?id=${p.id}">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+              </a>
+              <div class="product-rating">
+                <span class="star">★</span>
+                <span>${p.rating}</span>
+                <span style="color: var(--text-muted); font-size: 0.65rem;">(${p.reviewsCount})</span>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <h3 class="product-title">
+                <a href="product.html?id=${p.id}">${p.name}</a>
+              </h3>
+              <p class="product-tagline">${p.tagline}</p>
+              
+              <div class="product-shades-preview">
+                ${shadesHtml}
+                <span class="shades-count">${p.shades.length} Shades</span>
+              </div>
+
+              <div class="product-price-row">
+                <span class="price-current">₹${p.price}</span>
+                <span class="price-original">₹${p.originalPrice}</span>
+                <span class="price-discount">${discountPercent}% OFF</span>
+              </div>
+
+              <button class="product-card-btn add-to-cart-quick" data-id="${p.id}">
+                + Add To Bag
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Add click listeners to Quick Add buttons
+      document.querySelectorAll('.add-to-cart-quick').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('.product-card');
+          const productId = e.target.dataset.id;
+          const activeShadeEl = card.querySelector('.shade-circle.active') || card.querySelector('.shade-circle');
+          const shadeName = activeShadeEl ? activeShadeEl.dataset.shade : null;
+          Cart.addItem(productId, shadeName, 1);
+        });
       });
-    }
+
+      // Shade selector clicks
+      document.querySelectorAll('.shade-circle').forEach(circle => {
+        circle.addEventListener('click', (e) => {
+          const siblings = e.target.parentElement.querySelectorAll('.shade-circle');
+          siblings.forEach(s => s.classList.remove('active'));
+          e.target.classList.add('active');
+        });
+      });
+    });
   </script>
 </body>
 </html>

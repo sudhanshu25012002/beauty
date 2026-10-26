@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Store Locator | CRUSH Cosmetics</title>
+  <meta name="description" content="Reach the CRUSH Cosmetics concierge team, track orders, browse retail locations, or view common FAQs.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+</head>
+<body>
+
+  <!-- Top Marquee Bar -->
+  <div class="top-bar-marquee">
+    🔥 FLAT 20% OFF ON ORDERS ABOVE ₹799 • CODE: <strong>CRUSH20</strong> | FREE EXPRESS DELIVERY ACROSS INDIA ⚡
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-crush">CRUSH</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop All</a>
+        <a href="shop.html?cat=lips" class="nav-link">Lips</a>
+        <a href="shop.html?cat=eyes" class="nav-link">Eyes</a>
+        <a href="shop.html?cat=face" class="nav-link">Face</a>
+        <a href="about.html" class="nav-link">Our Story</a>
+        <a href="contact.html" class="nav-link active">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="icon-btn open-mini-cart-btn" title="Shopping Bag">
+          🛍️
+          <span class="badge-count cart-badge-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section-pad">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span class="hero-pill-badge">💬 24/7 CONCIERGE</span>
+        <h1 class="hero-title" style="font-size: 2.75rem;">WE'RE HERE FOR <span class="gradient-text">YOUR GLAM</span></h1>
+        <p class="hero-sub" style="margin: 0 auto; max-width: 600px;">
+          Have questions regarding an order, shade matching, or payment gateway settlement? Our customer squad is ready.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
+        <!-- Contact Form -->
+        <div style="background: var(--bg-card); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <h2 style="font-size: 1.25rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem;">Send a Message</h2>
+          <form id="contact-form" onsubmit="event.preventDefault(); alert('Message dispatched! Our beauty squad will respond within 2 hours.');">
+            <div style="display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Full Name</label>
+              <input type="text" class="form-control" placeholder="Aarohi Mehta" required>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Email Address</label>
+              <input type="email" class="form-control" placeholder="aarohi@example.com" required>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Order Number (Optional)</label>
+              <input type="text" class="form-control" placeholder="#CRUSH-89412">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.5rem;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Your Message</label>
+              <textarea class="form-control" rows="4" placeholder="How can we help?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message ⚡</button>
+          </form>
+        </div>
+
+        <!-- Direct Channels & Stores -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="background: var(--bg-secondary); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📍</div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem;">Flagship Beauty Studios</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              <strong>Mumbai:</strong> Linking Road, Bandra West<br>
+              <strong>Bengaluru:</strong> 100ft Road, Indiranagar<br>
+              <strong>New Delhi:</strong> M-Block Market, Greater Kailash 1
+            </p>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">⚡</div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem;">Concierge Hotline</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Phone / WhatsApp: <strong>+91 (022) 4920-8000</strong><br>
+              Email: <strong>concierge@crush.helioslabs.in</strong><br>
+              Hours: Mon - Sun • 9:00 AM - 10:00 PM IST
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="mini-cart-overlay" id="mini-cart-overlay"></div>
+  <aside class="mini-cart-drawer" id="mini-cart-drawer">
+    <div class="mini-cart-header">
+      <h3>Shopping Bag (<span class="cart-badge-count">0</span>)</h3>
+      <button class="close-drawer-btn" id="mini-cart-close" aria-label="Close Bag">&times;</button>
+    </div>
+    <div class="mini-cart-items" id="mini-cart-items"></div>
+    <div class="mini-cart-footer" id="mini-cart-footer"></div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2026 CRUSH Cosmetics (HeliosLabs). All Rights Reserved.</p>
+      <p><a href="shop.html">Return to Shop Vault →</a></p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/gateway.js"></script>
+</body>
+</html>

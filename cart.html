@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Glam Bag — CRUSH Cosmetics</title>
+  <meta name="description" content="Review your shopping bag, apply promo coupons, and proceed to checkout with our secure payment gateway.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+  <style>
+    .cart-page-section {
+      padding: 3rem 0 5rem;
+    }
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .cart-table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    .cart-summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: sticky;
+      top: 100px;
+    }
+    .cart-item-row {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .cart-item-row:first-child {
+      padding-top: 0;
+    }
+    .cart-item-img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .cart-item-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+    .coupon-box {
+      margin: 1.5rem 0;
+    }
+    .coupon-input-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .coupon-input {
+      flex: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .coupon-input:focus {
+      outline: none;
+      border-color: var(--accent-pink);
+    }
+    .available-coupons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .coupon-tag-btn {
+      background: rgba(255, 45, 117, 0.1);
+      border: 1px dashed var(--accent-pink);
+      color: var(--accent-pink);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Marquee Bar -->
+  <div class="top-bar-marquee">
+    🔥 FLAT 20% OFF ON ORDERS ABOVE ₹799 • CODE: <strong>CRUSH20</strong> | FREE EXPRESS DELIVERY ACROSS INDIA ⚡
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-crush">CRUSH</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop All</a>
+        <a href="shop.html?cat=lips" class="nav-link">Lips</a>
+        <a href="shop.html?cat=eyes" class="nav-link">Eyes</a>
+        <a href="shop.html?cat=face" class="nav-link">Face</a>
+        <a href="about.html" class="nav-link">Our Story</a>
+        <a href="contact.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="shop.html" class="icon-btn" title="Search Products">🔍</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="cart-page-section">
+    <div class="container">
+      <h1 class="section-title" style="margin-bottom: 2rem;">YOUR SHOPPING BAG</h1>
+
+      <div class="cart-layout" id="cart-content-layout">
+        <!-- Rendered by renderCartPage() -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="mini-cart-overlay" id="mini-cart-overlay"></div>
+  <aside class="mini-cart-drawer" id="mini-cart-drawer">
+    <div class="mini-cart-header">
+      <h3>Shopping Bag (<span class="cart-badge-count">0</span>)</h3>
+      <button class="close-drawer-btn" id="mini-cart-close" aria-label="Close Bag">&times;</button>
+    </div>
+    <div class="mini-cart-items" id="mini-cart-items"></div>
+    <div class="mini-cart-footer" id="mini-cart-footer"></div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2026 CRUSH Cosmetics (HeliosLabs). All Rights Reserved.</p>
+      <p><a href="shop.html">Continue Shopping Vault →</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/gateway.js"></script>
+  <script>
+    function renderCartPage() {
+      const container = document.getElementById('cart-content-layout');
+      if (!container) return;
+
+      const items = Cart.getItems();
+      const calc = Cart.getCalculations();
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 5rem 1rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🛍️</div>
+            <h2 style="font-size: 1.75rem; font-weight: 900; margin-bottom: 0.5rem;">Your Bag is Currently Empty!</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Discover our cult lipsticks, smudgeproof kajals, and glowing illuminators.</p>
+            <a href="shop.html" class="btn btn-primary">Start Exploring The Vault</a>
+          </div>
+        `;
+        return;
+      }
+
+      const itemsHtml = items.map((item, index) => `
+        <div class="cart-item-row">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-details">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <h3 class="cart-item-title">${item.name}</h3>
+              <button onclick="Cart.removeItem(${index})" style="color: var(--text-muted); font-size: 1.25rem;">×</button>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; margin: 4px 0 12px; font-size: 0.85rem; color: var(--text-secondary);">
+              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: ${item.shadeColor};"></span>
+              <span>Shade: <strong>${item.shade}</strong></span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="qty-stepper">
+                <button onclick="Cart.updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                <span>${item.quantity}</span>
+                <button onclick="Cart.updateQuantity(${index}, ${item.quantity + 1})">+</button>
+              </div>
+              <div style="font-size: 1.15rem; font-weight: 800; color: #fff;">
+                ₹${item.price * item.quantity}
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="cart-table-card">
+          <h2 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase;">
+            Items in Bag (${Cart.getCount()})
+          </h2>
+          <div>
+            ${itemsHtml}
+          </div>
+          <div style="margin-top: 1.5rem; display: flex; justify-content: space-between;">
+            <a href="shop.html" style="color: var(--accent-pink); font-weight: 700; font-size: 0.9rem;">← Continue Shopping</a>
+            <button onclick="if(confirm('Clear entire bag?')) Cart.clear(); renderCartPage();" style="color: var(--text-muted); font-size: 0.85rem;">Clear Entire Bag</button>
+          </div>
+        </div>
+
+        <div class="cart-summary-card">
+          <h2 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem; text-transform: uppercase;">
+            Order Summary
+          </h2>
+
+          <div class="free-shipping-bar" style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            ${calc.shipping === 0 
+              ? '<span class="free-ship-tag">🎉 Congratulations! You unlocked FREE Express Shipping</span>'
+              : `<span>Add ₹${calc.amountNeededForFreeShipping} more for <strong>FREE Express Shipping</strong></span>`
+            }
+            <div class="progress-track"><div class="progress-fill" style="width: ${calc.freeShippingProgress}%"></div></div>
+          </div>
+
+          <div class="coupon-box">
+            <label style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-secondary);">Apply Promo Code</label>
+            <div class="coupon-input-group">
+              <input type="text" id="cart-coupon-input" class="coupon-input" placeholder="Enter coupon" value="${calc.coupon ? calc.coupon.code : ''}">
+              <button class="btn btn-secondary btn-sm" id="cart-apply-coupon-btn">Apply</button>
+            </div>
+            <div class="available-coupons">
+              <button class="coupon-tag-btn" onclick="applyQuickCoupon('CRUSH20')">CRUSH20 (20% OFF)</button>
+              <button class="coupon-tag-btn" onclick="applyQuickCoupon('SUGARLOVE')">SUGARLOVE (₹300 OFF)</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 1rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary);">
+              <span>Bag Subtotal</span>
+              <span>₹${calc.subtotal}</span>
+            </div>
+            ${calc.discount > 0 ? `
+              <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--accent-pink); font-weight: 700;">
+                <span>Discount (${calc.coupon.code})</span>
+                <span>-₹${calc.discount}</span>
+              </div>
+            ` : ''}
+            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary);">
+              <span>Express Shipping</span>
+              <span>${calc.shipping === 0 ? '<strong style=\"color: var(--success);\">FREE</strong>' : '₹' + calc.shipping}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1.35rem; font-weight: 900; color: #fff; border-top: 1px dashed var(--border-color); padding-top: 0.75rem;">
+              <span>Grand Total</span>
+              <span>₹${calc.total}</span>
+            </div>
+          </div>
+
+          <a href="checkout.html" class="btn btn-primary btn-block" style="padding: 1rem;">
+            Proceed to Payment Gateway 🔒
+          </a>
+        </div>
+      `;
+
+      // Wire coupon button
+      document.getElementById('cart-apply-coupon-btn').addEventListener('click', () => {
+        const val = document.getElementById('cart-coupon-input').value;
+        const res = Cart.applyCoupon(val);
+        alert(res.message);
+        renderCartPage();
+      });
+    }
+
+    function applyQuickCoupon(code) {
+      const res = Cart.applyCoupon(code);
+      alert(res.message);
+      renderCartPage();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCartPage();
+    });
+  </script>
+</body>
+</html>

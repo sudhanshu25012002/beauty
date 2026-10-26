@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | CRUSH Cosmetics</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+  <style>
+    .pdp-section {
+      padding: 3rem 0 5rem;
+    }
+    .pdp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .pdp-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .pdp-main-image {
+      position: relative;
+      background: #000;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      aspect-ratio: 1;
+    }
+    .pdp-main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pdp-thumbnails {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .pdp-thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: var(--transition);
+    }
+    .pdp-thumb:hover, .pdp-thumb.active {
+      opacity: 1;
+      border-color: var(--accent-pink);
+    }
+    .pdp-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pdp-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .pdp-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: var(--accent-pink);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .pdp-title {
+      font-size: 2.25rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .pdp-tagline {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+    .pdp-rating-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .pdp-rating-chip {
+      background: rgba(245, 176, 65, 0.15);
+      color: var(--gold);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pdp-price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .pdp-current-price {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+    }
+    .pdp-mrp {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .pdp-discount-tag {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--success);
+      background: rgba(16, 185, 129, 0.15);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .shade-selector-section {
+      margin-bottom: 2rem;
+    }
+    .shade-title-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .selected-shade-name {
+      color: var(--accent-pink);
+    }
+    .shade-swatches-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .pdp-shade-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .pdp-shade-pill:hover, .pdp-shade-pill.active {
+      border-color: var(--accent-pink);
+      background: var(--bg-card-hover);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .shade-color-disc {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+    .pdp-actions-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .pdp-qty-stepper {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-secondary);
+    }
+    .pdp-qty-stepper button {
+      flex: 1;
+      height: 100%;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+    .pdp-qty-stepper span {
+      flex: 1;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+    .pdp-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      background: var(--bg-secondary);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+    .pdp-features-list li {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pdp-features-list li::before {
+      content: '✓';
+      color: var(--accent-pink);
+      font-weight: 900;
+    }
+    .accordion-block {
+      border-top: 1px solid var(--border-color);
+    }
+    .accordion-item {
+      border-bottom: 1px solid var(--border-color);
+    }
+    .accordion-btn {
+      width: 100%;
+      padding: 1rem 0;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .accordion-content {
+      padding-bottom: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .pdp-grid {
+        grid-template-columns: 1fr;
+      }
+      .pdp-actions-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Marquee Bar -->
+  <div class="top-bar-marquee">
+    🔥 FLAT 20% OFF ON ORDERS ABOVE ₹799 • CODE: <strong>CRUSH20</strong> | FREE EXPRESS DELIVERY ACROSS INDIA ⚡
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-crush">CRUSH</span>
+        <span class="logo-tag">PRO</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop All</a>
+        <a href="shop.html?cat=lips" class="nav-link">Lips</a>
+        <a href="shop.html?cat=eyes" class="nav-link">Eyes</a>
+        <a href="shop.html?cat=face" class="nav-link">Face</a>
+        <a href="about.html" class="nav-link">Our Story</a>
+        <a href="contact.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="icon-btn open-mini-cart-btn" title="Shopping Bag">
+          🛍️
+          <span class="badge-count cart-badge-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PDP Main Content -->
+  <main class="pdp-section">
+    <div class="container">
+      <div class="pdp-grid" id="pdp-container">
+        <!-- Rendered dynamically by script -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-Over Mini Cart Drawer -->
+  <div class="mini-cart-overlay" id="mini-cart-overlay"></div>
+  <aside class="mini-cart-drawer" id="mini-cart-drawer">
+    <div class="mini-cart-header">
+      <h3>Shopping Bag (<span class="cart-badge-count">0</span>)</h3>
+      <button class="close-drawer-btn" id="mini-cart-close" aria-label="Close Bag">&times;</button>
+    </div>
+    <div class="mini-cart-items" id="mini-cart-items"></div>
+    <div class="mini-cart-footer" id="mini-cart-footer"></div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2026 CRUSH Cosmetics (HeliosLabs). All Rights Reserved.</p>
+      <p><a href="shop.html">Return to Shop Vault →</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/gateway.js"></script>
+  <script>
+    let currentQty = 1;
+    let selectedShade = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id') || 'crush-matte-lipstick';
+      const product = getProductById(productId);
+
+      document.title = `${product.name} — CRUSH Cosmetics`;
+
+      selectedShade = product.shades ? product.shades[0].name : 'Default';
+      const discountPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+
+      const thumbnailsHtml = (product.images || [product.image]).map((imgUrl, idx) => `
+        <div class="pdp-thumb ${idx === 0 ? 'active' : ''}" data-src="${imgUrl}">
+          <img src="${imgUrl}" alt="${product.name} view">
+        </div>
+      `).join('');
+
+      const shadePillsHtml = (product.shades || []).map((s, idx) => `
+        <button type="button" class="pdp-shade-pill ${idx === 0 ? 'active' : ''}" data-shade="${s.name}">
+          <span class="shade-color-disc" style="background-color: ${s.color};"></span>
+          <span>${s.name}</span>
+        </button>
+      `).join('');
+
+      const benefitsHtml = (product.benefits || []).map(b => `<li>${b}</li>`).join('');
+
+      const container = document.getElementById('pdp-container');
+      container.innerHTML = `
+        <div class="pdp-gallery">
+          <div class="pdp-main-image">
+            <img id="pdp-active-img" src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="pdp-thumbnails">
+            ${thumbnailsHtml}
+          </div>
+        </div>
+
+        <div class="pdp-info">
+          <span class="pdp-badge">${product.badge || 'SIGNATURE'}</span>
+          <h1 class="pdp-title">${product.name}</h1>
+          <p class="pdp-tagline">${product.tagline}</p>
+
+          <div class="pdp-rating-row">
+            <div class="pdp-rating-chip">
+              <span>★</span>
+              <span>${product.rating} / 5.0</span>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--text-secondary);">${product.reviewsCount} Verified Customer Ratings</span>
+          </div>
+
+          <div class="pdp-price-box">
+            <span class="pdp-current-price">₹${product.price}</span>
+            <span class="pdp-mrp">₹${product.originalPrice}</span>
+            <span class="pdp-discount-tag">${discountPercent}% OFF</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">(Inclusive of all GST)</span>
+          </div>
+
+          <div class="shade-selector-section">
+            <div class="shade-title-row">
+              <span>Select Shade:</span>
+              <span class="selected-shade-name" id="display-shade-name">${selectedShade}</span>
+            </div>
+            <div class="shade-swatches-grid" id="pdp-shade-grid">
+              ${shadePillsHtml}
+            </div>
+          </div>
+
+          <div class="pdp-actions-row">
+            <div class="pdp-qty-stepper">
+              <button type="button" id="pdp-qty-minus">-</button>
+              <span id="pdp-qty-display">1</span>
+              <button type="button" id="pdp-qty-plus">+</button>
+            </div>
+            <button class="btn btn-secondary" id="pdp-add-bag-btn">
+              🛍️ Add to Bag
+            </button>
+            <button class="btn btn-primary" id="pdp-buy-now-btn">
+              ⚡ Buy with 1-Click
+            </button>
+          </div>
+
+          <ul class="pdp-features-list">
+            ${benefitsHtml}
+          </ul>
+
+          <div class="accordion-block">
+            <div class="accordion-item">
+              <button class="accordion-btn">
+                <span>The Formulation</span>
+                <span>▼</span>
+              </button>
+              <div class="accordion-content">
+                ${product.description}
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">
+                <span>How to Apply</span>
+                <span>▼</span>
+              </button>
+              <div class="accordion-content">
+                ${product.howToApply || 'Apply evenly onto clean skin or lips for optimal pigment density.'}
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">
+                <span>Ingredients & Clean Creed</span>
+                <span>▼</span>
+              </button>
+              <div class="accordion-content">
+                ${product.ingredients || 'Cruelty-free, vegan pigments and nourishing botanical oils.'}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Wire Thumbnail clicks
+      document.querySelectorAll('.pdp-thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+          document.getElementById('pdp-active-img').src = thumb.dataset.src;
+        });
+      });
+
+      // Wire Shade clicks
+      document.querySelectorAll('.pdp-shade-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.pdp-shade-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          selectedShade = pill.dataset.shade;
+          document.getElementById('display-shade-name').textContent = selectedShade;
+        });
+      });
+
+      // Wire Qty
+      document.getElementById('pdp-qty-minus').addEventListener('click', () => {
+        if (currentQty > 1) {
+          currentQty--;
+          document.getElementById('pdp-qty-display').textContent = currentQty;
+        }
+      });
+      document.getElementById('pdp-qty-plus').addEventListener('click', () => {
+        currentQty++;
+        document.getElementById('pdp-qty-display').textContent = currentQty;
+      });
+
+      // Wire Add to Bag
+      document.getElementById('pdp-add-bag-btn').addEventListener('click', () => {
+        Cart.addItem(product.id, selectedShade, currentQty);
+      });
+
+      // Wire Buy Now
+      document.getElementById('pdp-buy-now-btn').addEventListener('click', () => {
+        Cart.addItem(product.id, selectedShade, currentQty);
+        window.location.href = 'checkout.html';
+      });
+    });
+  </script>
+</body>
+</html>
